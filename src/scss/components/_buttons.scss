@@ -1,0 +1,17 @@
+.btn {
+  &,
+  &:link,
+  &:visited {
+    padding: 1rem 2rem;
+    display: inline-block;
+    border-radius: 10rem;
+    transition: all 0.2s;
+    position: relative;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 0.5rem 1rem rgba(black, 0.2);
+  }
+
+  &:hover {
+  }
+}

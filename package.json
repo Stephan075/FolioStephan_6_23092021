@@ -1,0 +1,22 @@
+{
+  "name": "foliostephan_6_23092021",
+  "version": "1.0.0",
+  "description": "OpenClassrooms Projet 6 - FishEye",
+  "main": "index.js",
+  "scripts": {
+    "sass": "node-sass -w src/scss -o src/css"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Stephan075/FolioStephan_6_23092021.git"
+  },
+  "author": "Stephan075",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Stephan075/FolioStephan_6_23092021/issues"
+  },
+  "homepage": "https://github.com/Stephan075/FolioStephan_6_23092021#readme",
+  "dependencies": {
+    "node-sass": "^6.0.1"
+  }
+}

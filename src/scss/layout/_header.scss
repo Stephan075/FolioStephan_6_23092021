@@ -1,14 +1,17 @@
 // header
 .header {
   display: flex;
-  flex-flow: row nowrap;
-  justify-content: space-between;
+  flex-flow: row wrap;
+  justify-content: space-evenly;
+  width: 75%;
   overflow: hidden;
   align-items: center;
+  padding-top: 35px;
+
   // resp
   @include xs {
-    flex-flow: row wrap;
-    margin-top: 30px;
+    justify-content: space-between;
+    width: 100%;
   }
 
   // link top
@@ -42,47 +45,17 @@
     display: flex;
     flex-flow: row wrap;
     justify-content: center;
+    position: relative;
+    top: 1px;
+    text-transform: capitalize;
+
     // resp
     @include xs {
       margin: 10px;
     }
     // element tag "li"
     &--elem {
-      font-weight: 500;
-      font-size: 1.4rem;
-      padding: 0.1rem 0.6rem;
-      border: 0.5px solid #c4c4c4;
-      border-radius: 11px;
-      color: #901c1c;
-      text-transform: capitalize;
-      margin: 0 0.3rem 1.3rem 0.3rem;
-      cursor: pointer;
-      transition: all 0.3s;
-      &:hover {
-        background-color: var(--primaire);
-        color: #fff;
-      }
-      // resp
-      @include xs {
-        margin: 0.2rem;
-      }
+      color: var(--primaire);
     }
   }
-  // H1 header
-  h1 {
-    color: var(--primaire);
-    // resp
-    @include xs {
-      font-size: 1.4rem;
-      position: fixed;
-      top: 0;
-      right: 0;
-      margin-right: 30px;
-      margin-top: 35px;
-    }
-  }
-}
-
-main {
-  height: 250rem;
 }

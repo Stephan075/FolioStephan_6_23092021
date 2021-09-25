@@ -30,37 +30,72 @@
     <!-- nav -->
     <nav class="header__tags" aria-label="photographer categories">
       <ul class="header__tags">
-        <li class="header__tags--elem">
+        <li class="header__tags--elem tag">
           <span>#portrait</span>
         </li>
-        <li class="header__tags--elem">
+        <li class="header__tags--elem tag">
           <span>#art</span>
         </li>
-        <li class="header__tags--elem">
+        <li class="header__tags--elem tag">
           <span>#fashion</span>
         </li>
-        <li class="header__tags--elem">
+        <li class="header__tags--elem tag">
           <span>#architecture</span>
         </li>
-        <li class="header__tags--elem">
+        <li class="header__tags--elem tag">
           <span>#travel</span>
         </li>
-        <li class="header__tags--elem">
+        <li class="header__tags--elem tag">
           <span>#sport</span>
         </li>
-        <li class="header__tags--elem">
+        <li class="header__tags--elem tag">
           <span>#animals</span>
         </li>
-        <li class="header__tags--elem">
+        <li class="header__tags--elem tag">
           <span>#events</span>
         </li>
       </ul>
     </nav>
-    <!-- Title -->
-    <h1>Nos Photographes</h1>
+
   </header>
-  <main>
-    hello
+  <main class="main">
+    <!-- Title -->
+    <h1 class="main__title">Nos Photographes</h1>
+    <section id="photographers" class="photographer__list" aria-label="photographers">
+
+      <!-- photographe 1 démo-->
+      <article class="photographer__item">
+        <a href="#" title="Mimi Keel">
+          <img src="./src/medias/Photographers_ID_Photos/MimiKeel.jpg" alt>
+          <!-- name -->
+          <h2 class="photographer__item--name">Mimi Keel</h2>
+        </a>
+        <!-- content location/tag/price -->
+        <div class="photographer__item__content">
+          <p class="photographer__item__content--location">london, UK</p>
+          <p class="photographer__item__content--tagline">Voir le beau dans le quotidien</p>
+          <p class="photographer__item__content--price">400€/jour</p>
+        </div>
+        <!-- tags -->
+        <div class="photographer__item--tags">
+          <span class="photographer__item--tag tag">
+            #portrait
+          </span>
+          <span class="photographer__item--tag tag">
+            #events
+          </span>
+          <span class="photographer__item--tag tag">
+            #travel
+          </span>
+          <span class="photographer__item--tag tag">
+            #animals
+          </span>
+        </div>
+      </article>
+
+
+    </section>
+
   </main>
   <script src="./index.js"></script>
 </body>

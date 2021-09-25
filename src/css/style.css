@@ -1,0 +1,116 @@
+:root {
+  font-family: 'Roboto', sans-serif;
+  --primaire: #901c1c;
+  --primaire-second: #d3573c;
+  --secondaire: #d3573c;
+  --tertiaire: #99e2d0;
+  --text: #333;
+  --background-primaire: #fff;
+  --background-secondaire: #f6f6f6; }
+
+/* Landscape phones */
+/* Landscape phone to portrait tablet */
+/* Portrait tablet to landscape and desktop */
+/* Large desktop */
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; }
+
+html {
+  font-size: 62.5%; }
+
+body {
+  margin: 0 2rem; }
+
+p {
+  margin: 1rem 0; }
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 1rem 0 2rem 0; }
+
+ul {
+  list-style: none; }
+
+a {
+  color: var(--text);
+  text-decoration: none; }
+
+img {
+  max-width: 100%; }
+
+/**
+ * ----------------------------------------
+ * animation 
+ * ----------------------------------------
+ */
+body {
+  font-family: var(--font-family);
+  color: var(--text);
+  font-size: 1.6rem;
+  line-height: 1.7; }
+
+.btn, .btn:link, .btn:visited {
+  padding: 1rem 2rem;
+  display: inline-block;
+  border-radius: 10rem;
+  transition: all 0.2s;
+  position: relative;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2); }
+
+.header {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  overflow: hidden;
+  align-items: center; }
+  @media only screen and (max-width: 480px) {
+    .header {
+      flex-flow: row wrap;
+      margin-top: 30px; } }
+  .header__logo img {
+    width: 20rem; }
+    @media only screen and (max-width: 480px) {
+      .header__logo img {
+        width: 128px; } }
+  .header__tags {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center; }
+    .header__tags--elem {
+      font-weight: 500;
+      font-size: 1.4rem;
+      padding: 0.1rem 0.6rem;
+      border: 0.5px solid #c4c4c4;
+      border-radius: 11px;
+      color: #901c1c;
+      text-transform: capitalize;
+      margin: 0 0.3rem 1.3rem 0.3rem; }
+      @media only screen and (max-width: 480px) {
+        .header__tags--elem {
+          margin: 0.2rem; } }
+    @media only screen and (max-width: 480px) {
+      .header__tags {
+        margin: 10px; } }
+  .header h1 {
+    color: var(--primaire); }
+    @media only screen and (max-width: 480px) {
+      .header h1 {
+        font-size: 1.4rem;
+        position: fixed;
+        top: 0;
+        right: 0;
+        margin-right: 30px;
+        margin-top: 35px; } }
+
+main {
+  height: 300rem; }

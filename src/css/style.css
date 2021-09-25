@@ -77,6 +77,20 @@ body {
     .header {
       flex-flow: row wrap;
       margin-top: 30px; } }
+  .header__photographers {
+    background: #db8876;
+    border-radius: 5px;
+    display: none;
+    font-weight: 700;
+    left: 0;
+    margin: 0 auto;
+    position: fixed;
+    right: 0;
+    text-align: center;
+    top: 5px;
+    width: 182px;
+    z-index: 1;
+    padding: 3px; }
   .header__logo img {
     width: 20rem; }
     @media only screen and (max-width: 480px) {
@@ -116,3 +130,6 @@ body {
         right: 0;
         margin-right: 30px;
         margin-top: 35px; } }
+
+main {
+  height: 250rem; }

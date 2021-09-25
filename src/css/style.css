@@ -86,6 +86,9 @@ body {
     display: flex;
     flex-flow: row wrap;
     justify-content: center; }
+    @media only screen and (max-width: 480px) {
+      .header__tags {
+        margin: 10px; } }
     .header__tags--elem {
       font-weight: 500;
       font-size: 1.4rem;
@@ -94,13 +97,15 @@ body {
       border-radius: 11px;
       color: #901c1c;
       text-transform: capitalize;
-      margin: 0 0.3rem 1.3rem 0.3rem; }
+      margin: 0 0.3rem 1.3rem 0.3rem;
+      cursor: pointer;
+      transition: all 0.3s; }
+      .header__tags--elem:hover {
+        background-color: var(--primaire);
+        color: #fff; }
       @media only screen and (max-width: 480px) {
         .header__tags--elem {
           margin: 0.2rem; } }
-    @media only screen and (max-width: 480px) {
-      .header__tags {
-        margin: 10px; } }
   .header h1 {
     color: var(--primaire); }
     @media only screen and (max-width: 480px) {
@@ -111,6 +116,3 @@ body {
         right: 0;
         margin-right: 30px;
         margin-top: 35px; } }
-
-main {
-  height: 300rem; }

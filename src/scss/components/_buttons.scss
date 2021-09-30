@@ -2,16 +2,29 @@
   &,
   &:link,
   &:visited {
-    padding: 1rem 2rem;
     display: inline-block;
-    border-radius: 10rem;
-    transition: all 0.2s;
-    position: relative;
-    border: none;
+    border-radius: 7px;
+    letter-spacing: 1px;
+    font-weight: 700;
     cursor: pointer;
-    box-shadow: 0 0.5rem 1rem rgba(black, 0.2);
+    border: none;
+    width: 150px;
+    height: 69px;
+    font-size: 1.7rem;
+    transition: all 0.3s;
+    @include xs {
+      width: 170px;
+      height: 35px;
+    }
   }
 
   &:hover {
+    color: #000;
+    background: var(--primaire-second);
+  }
+
+  &--primaire {
+    background: var(--primaire);
+    color: white;
   }
 }

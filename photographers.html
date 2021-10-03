@@ -24,33 +24,35 @@
 
   </header>
   <main class="main">
-    <!-- Title -->
-
+    <!-- information du photographe -->
     <section class="photographer">
 
       <article class="photographer__profil">
 
         <div class="photographer__body">
-          <h1 class="photographer__body--name">mimi keel</h1>
-          <p class="photographer__body--location">London, UK</p>
-          <p class="photographer__body--tagline">Voir le beau dans le quotidien</p>
-          <!-- tags -->
-          <div class="photographer__body--tags">
-            <span class="photographer__body--tag tag photographer__tag--item">
-              #portrait
-            </span>
-            <span class="photographer__body--tag tag photographer__tag--item">
-              #events
-            </span>
-            <span class="photographer__body--tag tag photographer__tag--item">
-              #travel
-            </span>
-            <span class="photographer__body--tag tag photographer__tag--item">
-              #animals
-            </span>
+          <div class="photographer__content">
+            <h1 class="photographer__body--name">mimi keel</h1>
+            <p class="photographer__body--location">London, UK</p>
+            <p class="photographer__body--tagline">Voir le beau dans le quotidien</p>
+            <!-- tags -->
+            <div class="photographer__body--tags">
+              <span class="photographer__body--tag tag photographer__tag--item">
+                #portrait
+              </span>
+              <span class="photographer__body--tag tag photographer__tag--item">
+                #events
+              </span>
+              <span class="photographer__body--tag tag photographer__tag--item">
+                #travel
+              </span>
+              <span class="photographer__body--tag tag photographer__tag--item">
+                #animals
+              </span>
+            </div>
           </div>
-          <button class="btn btn--primaire photographer__contactButton">Contactez-moi</button>
         </div>
+
+        <button class="btn btn--primaire photographer__contactButton">Contactez-moi</button>
         <!-- img -->
         <div class="photographer__profil--img">
           <img src="./src/medias/Photographers_ID_Photos/MimiKeel.jpg" alt="">
@@ -58,16 +60,82 @@
 
       </article>
     </section>
+    <!-- Les nombre de like et le prix du photographe -->
     <div class="infos">
       <div class="infos__likes">
         <p class="infos__likes--total">297 081<i class="fas fa-heart infos__likes--heart"></i></p>
-
       </div>
+      <!-- prix /jours -->
       <p class="infos__price">300€ / jour</p>
     </div>
+    <!-- Dropdown filtre -->
+    <div class="filter">
+      <label class="filter__label" for="sort-select">Trier par</label>
+
+      <select name="sort" id="sort-select">
+        <option class="sort" role='option' value="0">Popularité</option>
+        <option class="sort" role='option' value="1">Date</option>
+        <option class="sort" role='option' value="2">Tître</option>
+      </select>
+    </div>
+
+    <!-- media -->
+    <section class="media" role="region" aria-label="Photographer's media">
+      <article class="media__card">
+        <a href="./src/medias/Mimi/Animals_Rainbow.jpg">
+          <img src="./src/medias/Mimi/Animals_Rainbow.jpg" alt="Animals_Rainbow" class="media__card--img">
+        </a>
+        <div class="media__content">
+          <div class="media__content--title">Arc-en-ciel</div>
+          <div class="media__likes">
+            <p class="media__likes--number">12 <i class="fas fa-heart media__likes--heart" aria-label="likes"></i></p>
+          </div>
+        </div>
+      </article>
+
+      <article class="media__card">
+        <a href="#">
+          <video preload="metadata" controls src="./src/medias/Mimi/Animals_Wild_Horses_in_the_mountains.mp4">
+            Votre navigateur ne peut pas lire la vidéo.</video>
+        </a>
+        <div class="media__content">
+          <div class="media__content--title">Arc-en-ciel</div>
+          <div class="media__likes">
+            <p class="media__likes--number">12 <i class="fas fa-heart media__likes--heart" aria-label="likes"></i></p>
+          </div>
+        </div>
+      </article>
+
+      <article class="media__card">
+        <a href="#">
+          <img src="./src/medias/Mimi/Animals_Rainbow.jpg" alt="Animals_Rainbow" class="media__card--img">
+        </a>
+        <div class="media__content">
+          <div class="media__content--title">Arc-en-ciel</div>
+          <div class="media__likes">
+            <p class="media__likes--number">12 <i class="fas fa-heart media__likes--heart" aria-label="likes"></i></p>
+          </div>
+        </div>
+      </article>
+
+      <article class="media__card">
+        <a href="#">
+          <img src="./src/medias/Mimi/Animals_Rainbow.jpg" alt="Animals_Rainbow" class="media__card--img">
+        </a>
+        <div class="media__content">
+          <div class="media__content--title">Arc-en-ciel</div>
+          <div class="media__likes">
+            <p class="media__likes--number">12 <i class="fas fa-heart media__likes--heart" aria-label="likes"></i></p>
+          </div>
+        </div>
+      </article>
+
+
+
+    </section>
 
   </main>
-  <script src="./src/javascript/main.js"></script>
+  <script src="./src/javascript/photographer.js"></script>
 </body>
 
 </html>

@@ -15,17 +15,17 @@ const createphotographers = (photographers) => {
     // On lui ajoute une class
     photographerDOM.classList.add('photographer__item')
 
-    photographerDOM.onclick = () => {
-      localStorage.setItem('idphotograph', photographer.id)
-      location.href = 'photographers.html'
-    }
+    // photographerDOM.onclick = () => {
+    //   localStorage.setItem('idphotograph', photographer.id)
+    //   location.href = 'photographers.html'
+    // }
 
     // template string // textcontent pour la sécurité
     photographerDOM.innerHTML = `
-  <a href="#" title="${photographer.name}">
-  <img src="./src/medias/Photographers_ID_Photos/${photographer.portrait}" alt>
+  <a href="#" id="photographer" data-id=${photographer.id} title="${photographer.name}">
+  <img data-id=${photographer.id} src="./src/medias/Photographers_ID_Photos/${photographer.portrait}" alt>
   <!-- name -->
-  <h2 class="photographer__item--name">${photographer.name}</h2>
+  <h2 data-id=${photographer.id} class="photographer__item--name">${photographer.name}</h2>
 </a>
 <!-- content location/tag/price -->
 <div class="photographer__item__content">
@@ -52,7 +52,28 @@ const createphotographers = (photographers) => {
   // On écrase le photographersElement
   photographersElement.innerHTML = ''
   photographersElement.append(...photographersDOM)
-  console.log(photographersDOM)
+
+  // On récupére tout les lien des pages pour ajouter des event sur chaque button pour la redirection des page
+  const pagePhotographer = photographersElement.querySelectorAll('a')
+
+  // return console.log(pagePhotographer)
+
+  // On parcoure la liste des lien
+
+  pagePhotographer.forEach((link) => {
+    // return console.log(link)
+    link.addEventListener('click', (e) => {
+      const target = e.target
+      // return console.log(target)
+      const photographerId = target.dataset.id
+
+      // Rédiriger vers la pahe photographer du photographe grace à sont id
+      location.assign(`/photographers.html?id=${photographerId}`)
+
+      // return console.log(photographerId)
+    })
+  })
+  console.log(pagePhotographer)
 }
 
 // On utilise les async donc on va utiliser try catch qui nous permetra de récupérer nos erreur
@@ -61,6 +82,7 @@ const fetchPhotographer = async () => {
     // récupérer la data
     const response = await fetch('./src/javascript/data/FishEyeData.json')
 
+    // la methode json return une promesse
     const photographers = await response.json()
     // console.log(photographers.photographers[0].name)
     // return console.log(photographers)

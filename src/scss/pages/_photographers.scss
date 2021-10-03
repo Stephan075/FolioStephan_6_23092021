@@ -62,9 +62,9 @@
   }
 
   .photographer__contactButton {
-    position: absolute;
-    top: 2px;
-    left: 400px;
+    // position: absolute;
+    // top: 2px;
+    // left: 400px;
     // resp
     @include xs {
       position: fixed;
@@ -92,5 +92,39 @@
   z-index: 3;
   @include xs {
     display: none;
+  }
+}
+
+// media
+.media {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+
+  &__card {
+    min-width: 30%;
+    width: 350px;
+    margin-bottom: 30px;
+    img,
+    video {
+      height: 370px;
+      width: 100%;
+      object-fit: cover;
+      border-radius: 5px;
+    }
+  }
+
+  // contenue
+  &__content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 2.4rem;
+    color: var(--primaire);
+    line-height: 0rem;
+
+    @include xs {
+      font-size: 2rem;
+    }
   }
 }

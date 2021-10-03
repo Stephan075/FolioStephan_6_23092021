@@ -68,7 +68,7 @@ const createphotographers = (photographers) => {
       const photographerId = target.dataset.id
 
       // Rédiriger vers la pahe photographer du photographe grace à sont id
-      location.assign(`/photographers.html?id=${photographerId}`)
+      location.assign(`./photographers.html?id=${photographerId}`)
 
       // return console.log(photographerId)
     })

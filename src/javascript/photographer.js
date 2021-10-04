@@ -18,20 +18,11 @@ const getPhotographersById = async (jsonData, id) => {
   const photographers = data.photographers
 
   // return console.log(photographers[0].name)
-  let photographerArray = []
+  let photographerArray = {}
   photographers.map((data) => {
     // Si l'id de param's est le même que l'Id du photographe dans le fichier json
     if (id == data.id) {
-      photographerArray.push(
-        data.name,
-        data.city,
-        data.country,
-        data.tags,
-        data.tagline,
-        data.price,
-        data.portrait,
-        data.id
-      )
+      photographerArray = data
     }
   })
 
@@ -49,8 +40,10 @@ const tagSpan = (photographers) => {
   console.log(photographerContent)
 
   let messpantags = []
-  for (let cur of photographers[3]) {
+  for (let cur of photographers.tags) {
     messpantags.push(document.createElement('span'))
+    // length : taille du tab -1
+    // Recupérer le dernier élement du tab
     messpantags[messpantags.length - 1].textContent = '#' + cur
 
     messpantags[messpantags.length - 1].className =
@@ -76,9 +69,9 @@ const createphotographerPage = (photographers) => {
   photographerDOM.innerHTML = `
   <div class="photographer__body">
   <div class="photographer__content">
-    <h1 class="photographer__body--name">${photographers[0]}</h1>
-    <p class="photographer__body--location">${photographers[1]}, ${photographers[2]}</p>
-    <p class="photographer__body--tagline">${photographers[4]}</p>
+    <h1 class="photographer__body--name">${photographers.name}</h1>
+    <p class="photographer__body--location">${photographers.city}, ${photographers.country}</p>
+    <p class="photographer__body--tagline">${photographers.tagline}</p>
     <!-- tags -->
     <div class="photographer__body--tags">
 
@@ -89,7 +82,7 @@ const createphotographerPage = (photographers) => {
 <button class="btn btn--primaire photographer__contactButton">Contactez-moi</button>
 <!-- img -->
 <div class="photographer__profil--img">
-<img src="./src/medias/Photographers_ID_Photos/${photographers[6]}" alt="">
+<img src="./src/medias/Photographers_ID_Photos/${photographers.portrait}" alt="">
 </div>
   `
 
@@ -119,10 +112,19 @@ const initPage = async () => {
     // return console.log(tableau2[0])
   } catch (e) {
     // Si ya err on return à la page d'acceuil
-    location.replace('index.html')
+    console.log(e)
+    // location.replace('index.html')
   }
 }
 
 // référence
 
 initPage()
+
+const select = document.querySelector('#sort-select')
+
+console.log(select.value)
+
+select.addEventListener('change', () => {
+  console.log(select.value)
+})

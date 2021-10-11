@@ -62,9 +62,6 @@
   }
 
   .photographer__contactButton {
-    // position: absolute;
-    // top: 2px;
-    // left: 400px;
     // resp
     @include xs {
       position: fixed;
@@ -75,6 +72,17 @@
   }
 }
 
+// filter
+.filter {
+  display: block;
+  margin-bottom: 30px;
+  margin-top: 15px;
+}
+.filter__label {
+  font-size: 1.125em;
+  font-weight: bold;
+  margin-right: 25px;
+}
 // like info
 .infos {
   position: fixed;

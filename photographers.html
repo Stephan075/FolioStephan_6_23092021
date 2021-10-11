@@ -61,19 +61,13 @@
       </article>
     </section>
     <!-- Les nombre de like et le prix du photographe -->
-    <div class="infos">
-      <div class="infos__likes">
-        <p class="infos__likes--total">297 081<i class="fas fa-heart infos__likes--heart"></i></p>
-      </div>
-      <!-- prix /jours -->
-      <p class="infos__price">300€ / jour</p>
-    </div>
+    <div class="infos_all"></div>
     <!-- Dropdown filtre -->
     <div class="filter">
       <label class="filter__label" for="sort-select">Trier par</label>
 
       <select name="sort" id="sort-select" role="listbox">
-        <option class="sort" role='option' value="0">Popularité</option>
+        <option class="sort" role='option' value="0" selected class="selected">Popularité</option>
         <option class="sort" role='option' value="1">Date</option>
         <option class="sort" role='option' value="2">Tître</option>
       </select>
@@ -129,7 +123,9 @@
     </section>
 
   </main>
-  <script src="./src/javascript/photographer.js"></script>
+  <script src="./src/javascript/photographer.js" defer></script>
+  <script src="./src/javascript/mediaPhotographer.js" defer></script>
+  <script src="./src/javascript/MediaBuilder.js" defer></script>
 </body>
 
 </html>

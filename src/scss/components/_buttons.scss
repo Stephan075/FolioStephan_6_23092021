@@ -28,3 +28,35 @@
     color: white;
   }
 }
+
+select {
+  // position: absolute;
+  // transform: translate(-50%, -50%);
+  // top: 50%;
+  // left: 50%;
+  // appearance: none;
+  // width: 305px;
+  padding: 10px 20px;
+  background: #901c1c;
+  color: white;
+  font-weight: 700;
+  font-size: 20px;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+  border-radius: 5px;
+  // appearance: none;
+}
+
+select::-ms-expand {
+  display: none;
+}
+
+select option {
+  letter-spacing: 1.2px;
+  font-weight: 400;
+  font-size: 18px;
+}
+
+.selected {
+  display: none;
+}

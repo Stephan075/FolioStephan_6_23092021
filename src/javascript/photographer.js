@@ -1,4 +1,5 @@
 const photographerProfil = document.querySelector('.photographer')
+const body = document.querySelector('.infos_all')
 
 // récupérer les données et les afficher en Json()
 const fetchData = async () => {
@@ -37,7 +38,7 @@ const tagSpan = (photographers) => {
     '.photographer__body--tags'
   )
 
-  console.log(photographerContent)
+  // console.log(photographerContent)
 
   let messpantags = []
   for (let cur of photographers.tags) {
@@ -53,9 +54,38 @@ const tagSpan = (photographers) => {
   }
 }
 
+// regroupe la totalité des likes sur les photo du photographe et le prix /jour
+const infoPhotographer = (photographers, photographerMedia) => {
+  // 680
+  // La méthode reduce() prend deux arguments : une fonction de rappel et une valeur initiale.
+  const totalLike = photographerMedia.reduce(
+    (acc, curr, index) => {
+      // console.log(acc)
+      acc += curr.likes
+      // console.log(index)
+      return acc
+    },
+    0 //val initial
+  )
+
+  const photographerInfoDOM = document.createElement('div')
+
+  photographerInfoDOM.classList.add('infos')
+
+  photographerInfoDOM.innerHTML = `
+  <div class="infos__likes">
+        <p class="infos__likes--total">${totalLike} <i class="fas fa-heart infos__likes--heart"></i></p>
+      </div>
+      <!-- prix /jours -->
+      <p class="infos__price">${photographers.price}€ / jour</p>
+  `
+
+  body.append(photographerInfoDOM)
+}
+
 // On récupére ici les élement de l'utilisateur pour travailler dessus
 const createphotographerPage = (photographers) => {
-  console.log({ photographers })
+  // console.log({ photographers })
   // return console.log(photographers)
 
   // On crée notre élement article
@@ -121,10 +151,11 @@ const initPage = async () => {
 
 initPage()
 
+// select
 const select = document.querySelector('#sort-select')
 
-console.log(select.value)
+// console.log(select.value)
 
 select.addEventListener('change', () => {
-  console.log(select.value)
+  // console.log(select.value)
 })

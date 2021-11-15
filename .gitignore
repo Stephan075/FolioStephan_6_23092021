@@ -1,6 +1,6 @@
 # dependencies
 /node_modules
 
-/src/scss/*.scss
+*.scss
 
 package-lock.json

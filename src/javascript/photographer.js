@@ -1,5 +1,5 @@
 const photographerProfil = document.querySelector('.photographer')
-const body = document.querySelector('.infos_all')
+const allLikeAndPiceUser = document.querySelector('.infos_all')
 
 // récupérer les données et les afficher en Json()
 const fetchData = async () => {
@@ -74,18 +74,18 @@ const infoPhotographer = (photographers, photographerMedia) => {
 
   photographerInfoDOM.innerHTML = `
   <div class="infos__likes">
-        <p class="infos__likes--total">${totalLike} <i class="fas fa-heart infos__likes--heart"></i></p>
+        <p class="infos__likes--total">${totalLike} </p>
+        <i class="fas fa-heart infos__likes--heart"></i>
       </div>
       <!-- prix /jours -->
       <p class="infos__price">${photographers.price}€ / jour</p>
   `
 
-  body.append(photographerInfoDOM)
+  return allLikeAndPiceUser.append(photographerInfoDOM)
 }
 
 // On récupére ici les élement de l'utilisateur pour travailler dessus
 const createphotographerPage = (photographers) => {
-  // console.log({ photographers })
   // return console.log(photographers)
 
   // On crée notre élement article
@@ -139,7 +139,12 @@ const initPage = async () => {
 
     createphotographerPage(photographer)
 
-    // return console.log(tableau2[0])
+    // creation de la modal
+    const openModalButton = document.querySelector('.btn--primaire')
+
+    openModalButton.addEventListener('click', (e) => {
+      openModal(photographer)
+    })
   } catch (e) {
     // Si ya err on return à la page d'acceuil
     console.log(e)
@@ -150,12 +155,3 @@ const initPage = async () => {
 // référence
 
 initPage()
-
-// select
-const select = document.querySelector('#sort-select')
-
-// console.log(select.value)
-
-select.addEventListener('change', () => {
-  // console.log(select.value)
-})

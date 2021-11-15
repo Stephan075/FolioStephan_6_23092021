@@ -2,23 +2,39 @@
 // alert('test')
 
 const photographersElement = document.querySelector('.photographer__list')
+let filter
+let photographers
+// Le filter au début est vides il sera reinsigné avec le temps
+// const filters = document.querySelector('ul')
+
+// console.log({ filters })
+
+// filters.addEventListener('click', (e) => {
+//   let classValue = e.target.value
+//   console.log(classValue)
+// })
 
 // Liste des photographe
-const createphotographers = (photographers) => {
-  // return console.log(photographers)
-  // transformé tous les éléments de notre article
-  const photographersDOM = photographers.map((photographer) => {
+const createphotographers = (filter) => {
+  const photographersDOM =
+    filter !== undefined
+      ? photographers.photographers.filter(
+          (el) => el.tags.includes(filter),
+          (document.querySelector('.photographer__list').style.justifyContent =
+            ' flex-start')
+        )
+      : photographers.photographers
+
+  console.log(photographersDOM)
+  const photographersList = photographersDOM.map((photographer) => {
+    console.log(photographer)
+    // return console.log(photographer.tags)
     // On crée notre élement article
     const photographerDOM = document.createElement('article')
 
     // return console.log(photographer)
     // On lui ajoute une class
     photographerDOM.classList.add('photographer__item')
-
-    // photographerDOM.onclick = () => {
-    //   localStorage.setItem('idphotograph', photographer.id)
-    //   location.href = 'photographers.html'
-    // }
 
     // template string // textcontent pour la sécurité
     photographerDOM.innerHTML = `
@@ -51,7 +67,7 @@ const createphotographers = (photographers) => {
   })
   // On écrase le photographersElement
   photographersElement.innerHTML = ''
-  photographersElement.append(...photographersDOM)
+  photographersElement.append(...photographersList)
 
   // On récupére tout les lien des pages pour ajouter des event sur chaque button pour la redirection des page
   const pagePhotographer = photographersElement.querySelectorAll('a')
@@ -73,7 +89,7 @@ const createphotographers = (photographers) => {
       // return console.log(photographerId)
     })
   })
-  console.log(pagePhotographer)
+  // console.log(pagePhotographer)
 }
 
 // On utilise les async donc on va utiliser try catch qui nous permetra de récupérer nos erreur
@@ -82,12 +98,15 @@ const fetchPhotographer = async () => {
     // récupérer la data
     const response = await fetch('./src/javascript/data/FishEyeData.json')
 
-    // la methode json return une promesse
-    const photographers = await response.json()
+    // la methode json return une promesse & on assigne le photographers
+    photographers = await response.json()
     // console.log(photographers.photographers[0].name)
     // return console.log(photographers)
     // Founction qui nous créer les articles
-    createphotographers(photographers.photographers)
+    createphotographers()
+    displaytagsListe()
+
+    // filter multiple dimensional javascript
   } catch (e) {
     console.log('e :', e)
   }

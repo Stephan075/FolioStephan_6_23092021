@@ -22,11 +22,14 @@
 
 // Photographe
 .photographer {
+  justify-content: space-between;
+
   // la liste
   &__list {
+    justify-content: space-between;
+
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
     margin-top: 60px;
   }
 

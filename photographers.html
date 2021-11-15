@@ -62,23 +62,34 @@
     </section>
     <!-- Les nombre de like et le prix du photographe -->
     <div class="infos_all"></div>
-    <!-- Dropdown filtre -->
-    <div class="filter">
-      <label class="filter__label" for="sort-select">Trier par</label>
 
-      <select name="sort" id="sort-select" role="listbox">
-        <option class="sort" role='option' value="0" selected class="selected">Popularité</option>
-        <option class="sort" role='option' value="1">Date</option>
-        <option class="sort" role='option' value="2">Tître</option>
-      </select>
-      <!-- <span id="sort-text">Trier par</span>
-      <button class="btn-filter btn--primaire" aria-haspopup="listbox">Popularité</button> -->
-    </div>
+
+    <section class="filter" aria-label="filter media">
+      <div class="filter__dropdown">
+        <label for="OrderBy" class="filter__label">Trier par</label>
+        <div class="filter__custom-select">
+          <input name="filterMedia" id="OrderBy" class="filter__select" type="button" value="Popularité" role="button"
+            aria-haspopup="listbox">
+          <span class="filter__custom-arrow"></span>
+          <ul class="filter__custom-menu" role="listbox" aria-labelledby="OrderBy">
+            <li role="option" class="filter__custom-option" data-value="popular" id="popular" tabindex="0"
+              aria-selected="true">Popularité</li>
+            <li role="option" class="filter__custom-option" data-value="date" id="date" tabindex="0"
+              aria-selected="false">Date</li>
+            <li role="option" class="filter__custom-option" data-value="title" id="title" tabindex="0"
+              aria-selected="false">Titre</li>
+          </ul>
+        </div>
+      </div>
+
+    </section>
 
     <!-- media -->
-    <section class="media" role="region" aria-label="Photographer's media">
+    <section class="media" role="dialog" aria-label="Photographer's media">
       <article class="media__card">
-        <img src="./src/medias/Mimi/Animals_Rainbow.jpg" alt="Animals_Rainbow" class="media__card--img">
+        <a href="./src/medias/Mimi/Animals_Rainbow.jpg">
+          <img src="./src/medias/Mimi/Animals_Rainbow.jpg" alt="Animals_Rainbow" class="media__card--img">
+        </a>
         <div class="media__content">
           <div class="media__content--title">Arc-en-ciel</div>
           <div class="media__likes">
@@ -122,10 +133,20 @@
 
     </section>
 
+
+
+    <!-- Modal lightbox média -->
+
+
   </main>
+  <script src="./src/javascript/mediaLike.js" defer></script>
+  <script src="./src/javascript/modal.js" defer></script>
   <script src="./src/javascript/photographer.js" defer></script>
+  <script src="./src/javascript/lightbox.js" defer></script>
   <script src="./src/javascript/mediaPhotographer.js" defer></script>
   <script src="./src/javascript/MediaBuilder.js" defer></script>
+  <script src="./src/javascript/filter.js" defer></script>
+
 </body>
 
 </html>

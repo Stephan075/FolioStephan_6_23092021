@@ -73,16 +73,89 @@
 }
 
 // filter
-.filter {
-  display: block;
-  margin-bottom: 30px;
-  margin-top: 15px;
-}
-.filter__label {
-  font-size: 1.125em;
-  font-weight: bold;
-  margin-right: 25px;
-}
+// .filter {
+//   // display: none;
+//   width: 96%;
+//   margin-left: auto;
+//   margin-right: auto;
+//   padding-left: 1%;
+//   margin-top: 1.5em;
+//   margin-bottom: 2em;
+//   font-family: 'DM Sans';
+//   font-weight: 600;
+//   font-size: 0.85em;
+
+//   label {
+//     margin-right: 1.65em;
+//   }
+// }
+// .trie {
+//   background: #901c1c;
+//   display: inline-flex;
+//   flex-direction: column;
+//   align-items: flex-end;
+//   position: absolute;
+//   margin-top: -0.9em;
+//   width: 105px;
+//   height: auto;
+//   border: 7.5px solid #901c1c;
+//   border-left: 11px solid #901c1c;
+//   border-right: 11px solid #901c1c;
+//   border-radius: 3px;
+//   z-index: 1;
+//   transition: all 0.6s;
+//   cursor: pointer;
+
+//   em {
+//     transform: rotate(180deg);
+//     font-size: 0.9em;
+//     color: white;
+//     transition: all 0.5s;
+//     position: absolute;
+//     margin-top: 0.9em;
+//     margin-right: 0.3em;
+//     cursor: pointer;
+//   }
+
+//   button {
+//     background: #901c1c;
+//     text-align: left;
+//     color: white;
+//     align-self: end;
+//     font-family: 'DM Sans';
+//     border: none;
+//     padding: 11px;
+//     font-size: 13px;
+//     margin-left: -5px;
+//     cursor: pointer;
+//     transition: all 0.4s;
+
+//     &:nth-of-type(1) {
+//       margin-top: -3px;
+//       margin-bottom: -4px;
+//       width: 108%;
+//       text-align: left;
+//     }
+
+//     &:nth-of-type(2) {
+//       border-top: 1px solid white;
+//       border-bottom: 1px solid white;
+//       display: none;
+//       width: 108%;
+//     }
+//     &:nth-of-type(2):hover,
+//     &:focus,
+//     &:active {
+//       background: #831a1a;
+//     }
+
+//     &:nth-of-type(3) {
+//       margin-bottom: -3px;
+//       display: none;
+//       width: 108%;
+//     }
+//   }
+// }
 // like info
 .infos {
   position: fixed;
@@ -101,6 +174,16 @@
   @include xs {
     display: none;
   }
+
+  // like
+  &__likes {
+    display: flex;
+    align-items: center;
+
+    &--total {
+      margin-right: 1rem;
+    }
+  }
 }
 
 // media
@@ -110,6 +193,7 @@
   justify-content: space-between;
 
   &__card {
+    cursor: pointer;
     min-width: 30%;
     width: 350px;
     margin-bottom: 30px;
@@ -133,6 +217,17 @@
 
     @include xs {
       font-size: 2rem;
+    }
+  }
+
+  &__likes {
+    display: flex;
+    justify-content: space-between;
+
+    &--number {
+      margin-right: 1rem;
+      display: flex;
+      align-items: center;
     }
   }
 }

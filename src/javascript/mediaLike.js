@@ -14,7 +14,7 @@ function increaseDescreaseLikesAndTotalLikes() {
       e.preventDefault()
 
       // on séléctionne la totalité des likes
-      let totalLikes = document.querySelector('.infos__likes--total')
+      const totalLikes = document.querySelector('.infos__likes--total')
 
       // console.log(like, totalLikes)
 

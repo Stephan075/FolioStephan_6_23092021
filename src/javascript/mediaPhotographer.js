@@ -18,7 +18,7 @@ const getPhotographerMediaById = async (jsonData, id) => {
   const photographers = data.media
 
   // return console.log(photographers[0].name)
-  let photographerMediaArray = []
+  const photographerMediaArray = []
   photographers.map((data) => {
     // Si l'id de param's est le même que l'Id du photographe dans le fichier json on  push les info dans le tab
     if (id == data.photographerId) {
@@ -54,9 +54,9 @@ const createphotographerMedia = (photographers, photographerInfo) => {
     // On crée le dom avec inner
     photographerDOM.appendChild(mediaFactory.affich())
 
-    let mydiv = document.createElement('div')
+    const mydiv = document.createElement('div')
 
-    let autrediv = document.createElement('div')
+    const autrediv = document.createElement('div')
     autrediv.className = 'media__likes'
 
     mydiv.className = 'media__content'
@@ -67,7 +67,7 @@ const createphotographerMedia = (photographers, photographerInfo) => {
     <div class="media__content--title">${photographer.title}</div>
     <div class="media__likes">
       <p class="media__likes--number">${photographer.likes}</p>
-     <i class="fas fa-heart media__likes--heart" aria-label="likes"></i>
+     <i class="fas fa-heart media__likes--heart" aria-label="likes" title="icône coeur"></i>
     </div>
   </div>
   `
@@ -105,19 +105,16 @@ const photographerMedia = async () => {
 
     // console.log(photographers)
 
-    const filterPopular = () => {
-      return photographerMedia.sort((a, b) => b.likes - a.likes)
-    }
+    const filterPopular = () =>
+      photographerMedia.sort((a, b) => b.likes - a.likes)
 
-    const filtreDate = () => {
-      return photographerMedia.sort(
+    const filtreDate = () =>
+      photographerMedia.sort(
         (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
       )
-    }
 
-    const filterTitle = () => {
-      return photographerMedia.sort((a, b) => a.title.localeCompare(b.title))
-    }
+    const filterTitle = () =>
+      photographerMedia.sort((a, b) => a.title.localeCompare(b.title))
 
     select.forEach((btn) => {
       btn.addEventListener('click', (e) => {
@@ -141,7 +138,7 @@ const photographerMedia = async () => {
     // On récupérer les info du photograaphe (prix,like..)
     infoPhotographer(photographer, photographerMedia)
 
-    //Augmenter ou diminuer les likes d'un média et le total des likes
+    // Augmenter ou diminuer les likes d'un média et le total des likes
     increaseDescreaseLikesAndTotalLikes()
   } catch (e) {
     // Si ya err on return à la page d'acceuil

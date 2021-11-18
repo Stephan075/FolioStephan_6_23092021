@@ -5,7 +5,7 @@
  */
 class Lightbox {
   static init() {
-    //1 On séléctionne tout les liens qui on un atribu src et qui fini par 'mp4,jpg,jpeg' quand met dans un tableau
+    // 1 On séléctionne tout les liens qui on un atribu src et qui fini par 'mp4,jpg,jpeg' quand met dans un tableau
     const links = Array.from(
       document.querySelectorAll(
         'article.media__card video[src$=".mp4"],article.media__card img[src$=".jpg"],article.media__card img[src$=".jpeg"]'
@@ -13,7 +13,7 @@ class Lightbox {
     )
 
     // [...Convert array]
-    let allMedia = [...document.querySelector('.media').children].map(
+    const allMedia = [...document.querySelector('.media').children].map(
       (el) => el.children[1].children[0].textContent
     )
 
@@ -23,12 +23,13 @@ class Lightbox {
     // Pour chaque lien on fait un 'map" et on récupére directement l'abribut 'SRC'
     const gallery = links.map((link) => link.getAttribute('src'))
 
-    //2 On parcour l'ensemble des lienavec un forEach  et on lui ajoute un evenement au clik
+    // 2 On parcour l'ensemble des lienavec un forEach  et on lui ajoute un evenement au clik
     links.forEach((link) =>
       link.addEventListener('click', (e) => {
         e.preventDefault()
 
         // 3 on initial une nouvelle lightbox et on récupére l'url actuelle avec 'currentTarget' et on récupérer l'atribut 'src'
+        // eslint-disable-next-line  no-new
         new Lightbox(
           e.currentTarget.getAttribute('src'),
           gallery,
@@ -48,7 +49,7 @@ class Lightbox {
    * @param {string[]} images Chemin des images de la lightBox
    */
   constructor(url, images, title, allMedia) {
-    console.log('url : ' + url, 'title  :' + title, 'img : ' + images)
+    // console.log(`url : ${url}`, `title  :${title}`, `img : ${images}`)
     // On construt le Dom à partir de l'url
 
     // On ajoute la propriéte this.element sur notre obj qui nous permetra d'y acceder partout ou je le souhaite
@@ -92,8 +93,8 @@ class Lightbox {
     // On créer une nouvelle images
     const media = new Factory(
       this.isVideo(url)
-        ? { video: url, title: 'image : ' + title }
-        : { image: url, title: 'image : ' + title },
+        ? { video: url, title: `image : ${title}` }
+        : { image: url, title: `image : ${title}` },
       {}
     ).affich()
 
@@ -186,7 +187,7 @@ class Lightbox {
   next(e) {
     e.preventDefault()
 
-    //findIndex :  envoie l'indice du premier élément du tableau qui satisfait une condition donnée par une fonction. Si la fonction renvoie faux pour tous les éléments du tableau, le résultat vaut -1.
+    // findIndex :  envoie l'indice du premier élément du tableau qui satisfait une condition donnée par une fonction. Si la fonction renvoie faux pour tous les éléments du tableau, le résultat vaut -1.
 
     // On récupére la position quand poura incrementé
     let i = this.images.findIndex((image) => image === this.url)

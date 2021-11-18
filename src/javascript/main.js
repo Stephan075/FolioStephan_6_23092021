@@ -2,7 +2,8 @@
 // alert('test')
 
 const photographersElement = document.querySelector('.photographer__list')
-let filter
+// eslint-disable-next-line
+// let filter
 let photographers
 // Le filter au début est vides il sera reinsigné avec le temps
 // const filters = document.querySelector('ul')
@@ -25,9 +26,9 @@ const createphotographers = (filter) => {
         )
       : photographers.photographers
 
-  console.log(photographersDOM)
+  // console.log(photographersDOM)
   const photographersList = photographersDOM.map((photographer) => {
-    console.log(photographer)
+    // console.log(photographer)
     // return console.log(photographer.tags)
     // On crée notre élement article
     const photographerDOM = document.createElement('article')
@@ -39,7 +40,7 @@ const createphotographers = (filter) => {
     // template string // textcontent pour la sécurité
     photographerDOM.innerHTML = `
   <a href="#" id="photographer" data-id=${photographer.id} title="${photographer.name}">
-  <img data-id=${photographer.id} src="./src/medias/Photographers_ID_Photos/${photographer.portrait}" alt>
+  <img data-id=${photographer.id} src="./src/medias/Photographers_ID_Photos/${photographer.portrait}" alt="${photographer.name} portrait">
   <!-- name -->
   <h2 data-id=${photographer.id} class="photographer__item--name">${photographer.name}</h2>
 </a>
@@ -51,11 +52,11 @@ const createphotographers = (filter) => {
 </div>
 <!-- tags -->
   `
-
-    let messpantags = []
-    for (let cur of photographer.tags) {
+    const messpantags = []
+    // eslint-disable-next-line
+    for (const cur of photographer.tags) {
       messpantags.push(document.createElement('span'))
-      messpantags[messpantags.length - 1].textContent = '#' + cur
+      messpantags[messpantags.length - 1].textContent = `#${cur}`
 
       messpantags[messpantags.length - 1].className =
         'photographer__item--tag tag'
@@ -79,12 +80,12 @@ const createphotographers = (filter) => {
   pagePhotographer.forEach((link) => {
     // return console.log(link)
     link.addEventListener('click', (e) => {
-      const target = e.target
+      const { target } = e
       // return console.log(target)
       const photographerId = target.dataset.id
 
       // Rédiriger vers la pahe photographer du photographe grace à sont id
-      location.assign(`./photographers.html?id=${photographerId}`)
+      window.location.assign(`./photographers.html?id=${photographerId}`)
 
       // return console.log(photographerId)
     })
@@ -104,10 +105,13 @@ const fetchPhotographer = async () => {
     // return console.log(photographers)
     // Founction qui nous créer les articles
     createphotographers()
-    displaytagsListe()
+
+    // eslint-disable-next-line
+    displaytagsListe() // Function dans la page tags.js
 
     // filter multiple dimensional javascript
   } catch (e) {
+    /* eslint-disable no-alert, no-console */
     console.log('e :', e)
   }
 }

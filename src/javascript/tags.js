@@ -1,18 +1,18 @@
 const displaytagsListe = () => {
   const tagUl = document.querySelector('.header__tags')
-  let tags = []
+  const tags = []
   // console.log(Array.isArray(photographersTagsArr[0].tags))
   // console.log(photographersTagsArr[0].tags)
 
-  for (let photographer of photographers.photographers) {
-    for (let tag of photographer.tags) {
+  // eslint-disable-next-line
+  for (const photographer of photographers.photographers) {
+    // eslint-disable-next-line
+    for (const tag of photographer.tags) {
       tags.push(tag)
     }
   }
 
-  const filteredArray = tags.filter(function (ele, pos) {
-    return tags.indexOf(ele) == pos
-  })
+  const filteredArray = tags.filter((ele, pos) => tags.indexOf(ele) == pos)
   // console.log(filteredArray)
 
   const liElements = filteredArray.map((tag) => {

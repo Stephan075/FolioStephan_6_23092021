@@ -8,15 +8,14 @@ const fetchData = async () => {
 
   if (response.status < 300) {
     return response.json()
-  } else {
-    console.log(response.status)
   }
+  console.log(response.status)
 }
 
 const getPhotographersById = async (jsonData, id) => {
   const data = await jsonData
 
-  const photographers = data.photographers
+  const { photographers } = data
 
   // return console.log(photographers[0].name)
   let photographerArray = {}
@@ -40,12 +39,12 @@ const tagSpan = (photographers) => {
 
   // console.log(photographerContent)
 
-  let messpantags = []
-  for (let cur of photographers.tags) {
+  const messpantags = []
+  for (const cur of photographers.tags) {
     messpantags.push(document.createElement('span'))
     // length : taille du tab -1
     // Recupérer le dernier élement du tab
-    messpantags[messpantags.length - 1].textContent = '#' + cur
+    messpantags[messpantags.length - 1].textContent = `#${cur}`
 
     messpantags[messpantags.length - 1].className =
       'photographer__body--tag tag photographer__tag--item'
@@ -65,7 +64,7 @@ const infoPhotographer = (photographers, photographerMedia) => {
       // console.log(index)
       return acc
     },
-    0 //val initial
+    0 // val initial
   )
 
   const photographerInfoDOM = document.createElement('div')
@@ -75,7 +74,7 @@ const infoPhotographer = (photographers, photographerMedia) => {
   photographerInfoDOM.innerHTML = `
   <div class="infos__likes">
         <p class="infos__likes--total">${totalLike} </p>
-        <i class="fas fa-heart infos__likes--heart"></i>
+        <i class="fas fa-heart infos__likes--heart" title="icône coeur"></i>
       </div>
       <!-- prix /jours -->
       <p class="infos__price">${photographers.price}€ / jour</p>
@@ -112,7 +111,7 @@ const createphotographerPage = (photographers) => {
 <button class="btn btn--primaire photographer__contactButton">Contactez-moi</button>
 <!-- img -->
 <div class="photographer__profil--img">
-<img src="./src/medias/Photographers_ID_Photos/${photographers.portrait}" alt="">
+<img src="./src/medias/Photographers_ID_Photos/${photographers.portrait}" alt="${photographers.name} portrait">
 </div>
   `
 

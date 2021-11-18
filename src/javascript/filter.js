@@ -8,8 +8,8 @@ const dom = {
 }
 
 let filtre = dom.listSelectOption[0].getAttribute('data-value')
-console.log({ filtre })
-let displaySelectOptions = () => {
+// console.log({ filtre })
+const displaySelectOptions = () => {
   dom.select.addEventListener('click', () => {
     // Si ya pas la class dans le HTML on l'ajoute
     if (!dom.ulOption.classList.contains('filter__show')) {
@@ -27,7 +27,7 @@ let displaySelectOptions = () => {
 }
 displaySelectOptions()
 
-let removeClassToHideDuplicateOptionInSelect = (filtre, dom) => {
+const removeClassToHideDuplicateOptionInSelect = (filtre, dom) => {
   dom.forEach((option) => {
     if (option.getAttribute('data-value') != filtre) {
       option.classList.remove('filter__selected')
@@ -36,7 +36,7 @@ let removeClassToHideDuplicateOptionInSelect = (filtre, dom) => {
   })
 }
 
-let hideSelectedOptionInSelect = (filtre, dom) => {
+const hideSelectedOptionInSelect = (filtre, dom) => {
   dom.forEach((option) => {
     if (option.getAttribute('data-value') == filtre) {
       option.classList.add('filter__selected')
@@ -48,7 +48,7 @@ let hideSelectedOptionInSelect = (filtre, dom) => {
 dom.listSelectOption.forEach((option) =>
   option.addEventListener('click', () => {
     filtre = option.getAttribute('data-value')
-    console.log({ option })
+    // console.log({ option })
     removeClassToHideDuplicateOptionInSelect(filtre, dom.listSelectOption)
     dom.inputSelect.setAttribute('value', option.innerText)
     hideSelectedOptionInSelect(filtre, dom.listSelectOption)

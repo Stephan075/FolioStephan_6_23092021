@@ -1,4 +1,5 @@
 const body = document.querySelector('body')
+const mainWrapper = document.querySelector('#main-wrapper')
 const form = document.createElement('form')
 const closeModal = document.createElement('button')
 
@@ -9,10 +10,12 @@ let displayForm = false
 const createCalc = () => {
   calc = document.createElement('div')
   calc.classList.add('calc')
+  calc.setAttribute('aria-hidden', 'true')
 
   // On écoute le click sur le calc et on le suprime
   calc.addEventListener('click', () => {
     calc.remove()
+    mainWrapper.setAttribute('aria-hidden', 'false')
   })
 }
 
@@ -101,9 +104,9 @@ const createForm = () => {
 
   displayForm = true
 }
-
+// aria-hidden="true"
 const createModal = (photographer) => {
-  console.log(photographer)
+  // console.log(photographer)
   modal = document.createElement('div')
 
   modal.setAttribute('role', 'dialog')
@@ -126,6 +129,7 @@ const createModal = (photographer) => {
   // fermer le modal
   closeModal.addEventListener('click', () => {
     calc.remove()
+    mainWrapper.setAttribute('aria-hidden', 'false')
   })
 
   modal.addEventListener('click', (e) => {
@@ -155,6 +159,7 @@ form.addEventListener('submit', (event) => {
 
 const openModal = (photographer) => {
   const c = document.createComment('Formulaire de contact')
+  mainWrapper.setAttribute('aria-hidden', 'true')
 
   createCalc()
   createModal(photographer)

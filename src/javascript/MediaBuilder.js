@@ -5,9 +5,8 @@ function Factory(content, photographer) {
 
   if (content.video) {
     return new FactoryVideo(content.video, photographer, content.title)
-  } else {
-    return new FactoryImage(content.image, photographer, content.title)
   }
+  return new FactoryImage(content.image, photographer, content.title)
 
   // return this
 }
@@ -17,6 +16,7 @@ function FactoryImage(content, photographer, title) {
   this.el.classList.add('media__card--img')
   this.el.src = `./src/medias/${photographer}/${content}`
   this.el.setAttribute('alt', `${title}`)
+  this.el.setAttribute('tabindex', `0`)
 
   // methode
   this.getEl = function () {

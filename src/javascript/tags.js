@@ -1,3 +1,6 @@
+/* eslint-disable */
+
+// fonction utiliser dans le fichier main.js L.110
 const displaytagsListe = () => {
   const tagUl = document.querySelector('.header__tags')
   const tags = []
@@ -19,6 +22,7 @@ const displaytagsListe = () => {
     // console.log(tag)
     const li = document.createElement('li')
     li.className = 'header__tags--elem tag'
+    li.setAttribute('tabindex', `0`)
 
     const tagLiSpan = document.createElement('span')
     li.append(tagLiSpan)
@@ -26,7 +30,16 @@ const displaytagsListe = () => {
     tagLiSpan.appendChild(tagLiSpanText)
 
     li.addEventListener('click', (e) => {
+      // fonction utiliser dans le fichier main.js L.19
       createphotographers(e.target.textContent.slice(1))
+    })
+
+    li.addEventListener('keyup', (e) => {
+      // return console.log(e.key)
+      if (e.key === 'Enter') {
+        // fonction utiliser dans le fichier main.js L.19
+        createphotographers(e.target.textContent.slice(1))
+      }
     })
 
     return li
@@ -34,6 +47,7 @@ const displaytagsListe = () => {
 
   tagUl.innerHTML = ''
 
+  // on utilise l'opérateur spread pour convertir notre tableau en liste de noeuds HTML séparés par des virgules
   tagUl.append(...liElements)
 }
 /*

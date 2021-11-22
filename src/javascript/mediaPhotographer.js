@@ -4,11 +4,6 @@ const photographerSectionMedia = document.querySelector('.media')
 // let filter = dom.selectOption[0].getAttribute('data-value')
 
 // console.log(filter)
-
-/**
- * @param  {} jsonData
- * @param  {} id
- */
 const getPhotographerMediaById = async (jsonData, id) => {
   const data = await jsonData
 
@@ -19,6 +14,7 @@ const getPhotographerMediaById = async (jsonData, id) => {
 
   // return console.log(photographers[0].name)
   const photographerMediaArray = []
+
   photographers.map((data) => {
     // Si l'id de param's est le même que l'Id du photographe dans le fichier json on  push les info dans le tab
     if (id == data.photographerId) {
@@ -26,12 +22,12 @@ const getPhotographerMediaById = async (jsonData, id) => {
     }
   })
 
-  console.log({ photographerMediaArray })
+  // console.log({ photographerMediaArray })
 
   return photographerMediaArray
 }
 
-// On crée un media du photographe
+// On crée un media du photographe current
 const createphotographerMedia = (photographers, photographerInfo) => {
   // console.log({ photographersMEdia: photographers })
   // On récupére le nom du photographe pour nous permetre de rentré dans le bon fichier img
@@ -43,6 +39,8 @@ const createphotographerMedia = (photographers, photographerInfo) => {
   // On crée notre élement article
   const photographerElemDOM = photographers.map((photographer) => {
     // console.log(photographerName[0])
+    // on crer notre facoty
+    // la function est dans le fichier MediaBuilder.js
     const mediaFactory = new Factory(photographer, photographerName[0])
 
     // return console.log(photographer.image)
@@ -63,11 +61,11 @@ const createphotographerMedia = (photographers, photographerInfo) => {
     mydiv.appendChild(autrediv)
 
     photographerDOM.innerHTML += `
-  <div class="media__content">
+  <div class="media__content" tabindex="0">
     <div class="media__content--title">${photographer.title}</div>
     <div class="media__likes">
       <p class="media__likes--number">${photographer.likes}</p>
-     <i class="fas fa-heart media__likes--heart" aria-label="likes" title="icône coeur"></i>
+     <i class="fas fa-heart media__likes--heart" aria-label="likes" title="icône coeur" tabindex="0"></i>
     </div>
   </div>
   `
@@ -81,6 +79,7 @@ const createphotographerMedia = (photographers, photographerInfo) => {
   photographerSectionMedia.append(...photographerElemDOM)
 
   // On initialise le lighbox
+  // class crée dans la page lighbox.js ligne 6
   Lightbox.init()
 }
 
@@ -91,59 +90,34 @@ const photographerMedia = async () => {
     const photographerId = params.searchParams.get('id')
 
     // On lui envoi la data et l'id du photographe pour y travailler plus tard
-    const photographerMedia = await getPhotographerMediaById(
+    // liste des media du photographe current
+    const currentPhotographerMedia = await getPhotographerMediaById(
       fetchData(),
       photographerId
     )
+
+    // information du photographe current (nom,id,city...)
+    // la function 'getPhotographersById' est créer dans le fichier "photographer.js" L.15
     const photographer = await getPhotographersById(fetchData(), photographerId)
 
     // On crée & affiche tout le media du photographe
-    createphotographerMedia(photographerMedia, photographer)
+    createphotographerMedia(currentPhotographerMedia, photographer)
+    // createphotographerMedia(currentPhotographerMedia)
 
-    // /////////////////////////////////////////////
-    const select = document.querySelectorAll('.filter__custom-option')
-
-    // console.log(photographers)
-
-    const filterPopular = () =>
-      photographerMedia.sort((a, b) => b.likes - a.likes)
-
-    const filtreDate = () =>
-      photographerMedia.sort(
-        (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
-      )
-
-    const filterTitle = () =>
-      photographerMedia.sort((a, b) => a.title.localeCompare(b.title))
-
-    select.forEach((btn) => {
-      btn.addEventListener('click', (e) => {
-        console.log(filtre)
-
-        // console.log(e.target.dataset.value)
-        if (filtre === 'popular') {
-          filterPopular()
-          console.log(filterPopular())
-        } else if (filtre === 'date') {
-          console.log(filtreDate())
-        } else if (filtre === 'title') {
-          filterTitle()
-          console.log(filterTitle())
-        }
-
-        createphotographerMedia(photographerMedia, photographer)
-      })
-    })
+    //  Cette fonction nous permet de trier les media du photographe current
+    // On lui envoi en param' la liste des media du photographe current ou les information du photographe
+    // Elle ce situe dans la page filter.js L.60
+    sortBy(currentPhotographerMedia, photographer)
 
     // On récupérer les info du photograaphe (prix,like..)
-    infoPhotographer(photographer, photographerMedia)
+    infoPhotographer(photographer, currentPhotographerMedia)
 
     // Augmenter ou diminuer les likes d'un média et le total des likes
+    // cette function ce situe dans la page "mediaLike.js" à la ligne 26
+
     increaseDescreaseLikesAndTotalLikes()
   } catch (e) {
-    // Si ya err on return à la page d'acceuil
     console.log(e)
-    // location.replace('index.html')
   }
 }
 

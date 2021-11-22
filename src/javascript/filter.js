@@ -56,3 +56,40 @@ dom.listSelectOption.forEach((option) =>
 )
 
 hideSelectedOptionInSelect(filtre, dom.listSelectOption)
+
+const sortBy = (currentPhotographerMedia, photographer) => {
+  // /////////////////////////////////////////////
+  const select = document.querySelectorAll('.filter__custom-option')
+
+  // console.log(photographers)
+
+  const filterPopular = () =>
+    currentPhotographerMedia.sort((a, b) => b.likes - a.likes)
+
+  const filtreDate = () =>
+    currentPhotographerMedia.sort(
+      (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
+    )
+
+  const filterTitle = () =>
+    currentPhotographerMedia.sort((a, b) => a.title.localeCompare(b.title))
+
+  select.forEach((btn) => {
+    btn.addEventListener('click', (e) => {
+      console.log(filtre)
+
+      // console.log(e.target.dataset.value)
+      if (filtre === 'popular') {
+        filterPopular()
+        console.log(filterPopular())
+      } else if (filtre === 'date') {
+        console.log(filtreDate())
+      } else if (filtre === 'title') {
+        filterTitle()
+        console.log(filterTitle())
+      }
+
+      createphotographerMedia(currentPhotographerMedia, photographer)
+    })
+  })
+}

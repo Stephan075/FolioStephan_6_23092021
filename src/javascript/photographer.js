@@ -1,3 +1,4 @@
+// /* eslint-disable */
 const photographerProfil = document.querySelector('.photographer')
 const allLikeAndPiceUser = document.querySelector('.infos_all')
 
@@ -39,18 +40,30 @@ const tagSpan = (photographers) => {
 
   // console.log(photographerContent)
 
-  const messpantags = []
-  for (const cur of photographers.tags) {
-    messpantags.push(document.createElement('span'))
-    // length : taille du tab -1
-    // Recupérer le dernier élement du tab
-    messpantags[messpantags.length - 1].textContent = `#${cur}`
+  // boucle sur ta
+  // const messpantags = []
+  // for (const cur of photographers.tags) {
+  //   messpantags.push(document.createElement('span'))
+  //   // length : taille du tab -1
+  //   // Recupérer le dernier élement du tab
+  //   messpantags[messpantags.length - 1].textContent = `#${cur}`
 
-    messpantags[messpantags.length - 1].className =
-      'photographer__body--tag tag photographer__tag--item'
+  //   messpantags[messpantags.length - 1].className =
+  //     'photographer__body--tag tag photographer__tag--item'
 
-    photographerContent.appendChild(messpantags[messpantags.length - 1])
-  }
+  //   photographerContent.appendChild(messpantags[messpantags.length - 1])
+  // }
+
+  console.log(photographers.tags)
+  // []
+  // tant que j'ai des tags je return un elemnt HTML
+  photographers.tags.map((el) => {
+    const curel = document.createElement('span')
+    curel.textContent = `#${el}`
+    curel.className = 'photographer__body--tag tag photographer__tag--item'
+    photographerContent.appendChild(curel)
+    return curel
+  })
 }
 
 // regroupe la totalité des likes sur les photo du photographe et le prix /jour

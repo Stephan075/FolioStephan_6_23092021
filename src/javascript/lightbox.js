@@ -25,13 +25,26 @@ class Lightbox {
 
     // 2 On parcour l'ensemble des lienavec un forEach  et on lui ajoute un evenement au clik
     links.forEach((link) =>
-      link.addEventListener(
-        'click',
-        (e) => {
-          e.preventDefault()
+      link.addEventListener('click', (e) => {
+        e.preventDefault()
 
-          // 3 on initial une nouvelle lightbox et on récupére l'url actuelle avec 'currentTarget' et on récupérer l'atribut 'src'
-          // eslint-disable-next-line  no-new
+        // 3 on initial une nouvelle lightbox et on récupére l'url actuelle avec 'currentTarget' et on récupérer l'atribut 'src'
+        // eslint-disable-next-line
+        new Lightbox(
+          e.currentTarget.getAttribute('src'),
+          gallery,
+          // e.currentTarget.getAttribute('alt'),
+          e.currentTarget.parentNode.children[1].children[0].textContent,
+
+          allMedia
+        )
+      })
+    )
+    links.forEach((link) =>
+      link.addEventListener('keyup', (e) => {
+        // return console.log(e.key)
+        if (e.key === 'Enter') {
+          // eslint-disable-next-line
           new Lightbox(
             e.currentTarget.getAttribute('src'),
             gallery,
@@ -40,22 +53,8 @@ class Lightbox {
 
             allMedia
           )
-        },
-
-        link.addEventListener('keyup', (e) => {
-          // return console.log(e.key)
-          if (e.key === 'Enter') {
-            new Lightbox(
-              e.currentTarget.getAttribute('src'),
-              gallery,
-              // e.currentTarget.getAttribute('alt'),
-              e.currentTarget.parentNode.children[1].children[0].textContent,
-
-              allMedia
-            )
-          }
-        })
-      )
+        }
+      })
     )
     // console.log({ links })
   }

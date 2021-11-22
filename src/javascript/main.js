@@ -52,7 +52,9 @@ const createphotographers = (filter) => {
 </div>
 <!-- tags -->
   `
+    // indice 0 -1 pour récupérer le dernier élement
     const messpantags = []
+    // afich
     // eslint-disable-next-line
     for (const cur of photographer.tags) {
       messpantags.push(document.createElement('span'))

@@ -40,7 +40,7 @@ const createphotographerMedia = (photographers, photographerInfo) => {
   const photographerElemDOM = photographers.map((photographer) => {
     // console.log(photographerName[0])
     // on crer notre facoty
-    // la function est dans le fichier MediaBuilder.js
+    // la function est dans le fichier "MediaBuilder.js"
     const mediaFactory = new Factory(photographer, photographerName[0])
 
     // return console.log(photographer.image)

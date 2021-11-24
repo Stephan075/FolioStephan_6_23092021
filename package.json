@@ -2,7 +2,7 @@
   "name": "foliostephan_6_23092021",
   "version": "1.0.0",
   "description": "OpenClassrooms Projet 6 - FishEye",
-  "main": "index.js",
+  "main": "main.js",
   "scripts": {
     "sass": "node-sass -w src/scss -o src/css"
   },

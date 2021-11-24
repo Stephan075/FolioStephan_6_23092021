@@ -1,3 +1,4 @@
+/* eslint-disable */
 const dom = {
   inputSelect: document.querySelector('.filter__select'),
   selectMenu: document.querySelector('.filter__custom-menu'),
@@ -57,6 +58,8 @@ dom.listSelectOption.forEach((option) =>
 
 hideSelectedOptionInSelect(filtre, dom.listSelectOption)
 
+// Cette fonction est utilisé dans le fichier mediaPhotographer.js L.110
+// Elle  nous permet de trier les media du photographe current
 const sortBy = (currentPhotographerMedia, photographer) => {
   // /////////////////////////////////////////////
   const select = document.querySelectorAll('.filter__custom-option')
@@ -89,6 +92,8 @@ const sortBy = (currentPhotographerMedia, photographer) => {
         console.log(filterTitle())
       }
 
+      // Cette fonction est utilisé dans le fichier mediaPhotographer.js L.31
+      // Elle  nous permet de crée un media du photographe current
       createphotographerMedia(currentPhotographerMedia, photographer)
     })
   })

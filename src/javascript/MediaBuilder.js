@@ -6,9 +6,19 @@ function Factory(content, photographer) {
   this.content = {}
 
   if (content.video) {
-    return new FactoryVideo(content.video, photographer, content.title)
+    return new FactoryVideo(
+      content.video,
+      photographer,
+      content.title,
+      content.altTxt
+    )
   }
-  return new FactoryImage(content.image, photographer, content.title)
+  return new FactoryImage(
+    content.image,
+    photographer,
+    content.title,
+    content.altTxt
+  )
 
   // return this
 }
@@ -20,11 +30,11 @@ function Factory(content, photographer) {
  * @param {*} title
  */
 // crée des élement HTML
-function FactoryImage(content, photographer, title) {
+function FactoryImage(content, photographer, title, altTxt) {
   this.el = document.createElement('img')
   this.el.classList.add('media__card--img')
   this.el.src = `./src/medias/${photographer}/${content}`
-  this.el.setAttribute('alt', `image ${title}`)
+  this.el.setAttribute('alt', `image ${altTxt}`)
   this.el.setAttribute('tabindex', `0`)
 
   // return un elem HTML

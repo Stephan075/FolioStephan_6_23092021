@@ -50,7 +50,7 @@ const createphotographerMedia = (photographers, photographerInfo) => {
     photographerDOM.classList.add('media__card')
 
     // On crée le dom avec inner
-    photographerDOM.appendChild(mediaFactory.affich())
+    photographerDOM.append(mediaFactory.affich())
 
     const mydiv = document.createElement('div')
 

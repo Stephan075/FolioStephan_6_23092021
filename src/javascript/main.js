@@ -5,6 +5,7 @@ const photographersElement = document.querySelector('.photographer__list')
 // eslint-disable-next-line
 // let filter
 let photographers
+
 // Le filter au début est vides il sera reinsigné avec le temps
 // const filters = document.querySelector('ul')
 
@@ -17,6 +18,7 @@ let photographers
 
 // Liste des photographe
 const createphotographers = (filter) => {
+  // La liste de tout les photographe
   const photographersDOM =
     filter !== undefined
       ? photographers.photographers.filter(
@@ -27,8 +29,8 @@ const createphotographers = (filter) => {
       : photographers.photographers
 
   // console.log(photographersDOM)
+  // on map la liste des photographe pour les récupérer dans une nouveau tab un/un
   const photographersList = photographersDOM.map((photographer) => {
-    // console.log(photographer)
     // return console.log(photographer.tags)
     // On crée notre élement article
     const photographerDOM = document.createElement('article')
@@ -75,6 +77,8 @@ const createphotographers = (filter) => {
   // On récupére tout les lien des pages pour ajouter des event sur chaque button pour la redirection des page
   const pagePhotographer = photographersElement.querySelectorAll('a')
 
+  // utiliser les A
+
   // return console.log(pagePhotographer)
 
   // On parcoure la liste des lien
@@ -103,6 +107,7 @@ const fetchPhotographer = async () => {
 
     // la methode json return une promesse & on assigne le photographers
     photographers = await response.json()
+
     // console.log(photographers.photographers[0].name)
     // return console.log(photographers)
     // Founction qui nous créer les articles
@@ -123,3 +128,5 @@ fetchPhotographer()
 
 // Set => élimine les doublons
 // const mestages = new Set(tonobjetjson.photographers.map((el) => el.tags))
+
+// niamatosylla@gmail.com

@@ -44,10 +44,13 @@ function FactoryImage(content, photographer, title, altTxt) {
 }
 
 // crée des élement HTML
-function FactoryVideo(content, photographer) {
+function FactoryVideo(content, photographer, title, altTxt) {
   this.el = document.createElement('video')
-  this.el.setAttribute('controls', 'controls')
-  this.el.setAttribute('preload', 'metadata')
+  // this.el.setAttribute('controls', 'controls')
+  // this.el.setAttribute('preload', 'metadata')
+  this.el.setAttribute('poster', 'src/images/placeholder_video.png')
+  this.el.setAttribute('alt', `image ${altTxt}`)
+  this.el.setAttribute('tabindex', `0`)
   this.el.src = `./src/medias/${photographer}/${content}`
 
   // Methode

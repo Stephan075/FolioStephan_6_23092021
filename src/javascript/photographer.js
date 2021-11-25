@@ -21,6 +21,8 @@ const getPhotographersById = async (jsonData, id) => {
   // return console.log(photographers[0].name)
   let photographerArray = {}
   photographers.map((data) => {
+    // find
+
     // Si l'id de param's est le même que l'Id du photographe dans le fichier json
     if (id == data.id) {
       photographerArray = data

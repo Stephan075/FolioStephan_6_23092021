@@ -1,0 +1,41 @@
+.btn {
+  &,
+  &:link,
+  &:visited {
+    display: inline-block;
+    border-radius: 7px;
+    letter-spacing: 1px;
+    font-weight: 700;
+    cursor: pointer;
+    border: none;
+    width: 150px;
+    height: 69px;
+    font-size: 1.7rem;
+    transition: all 0.3s;
+    @include xs {
+      width: 170px;
+      height: 35px;
+    }
+  }
+
+  &--primaire {
+    background: var(--primaire);
+    color: white;
+    &:hover {
+      color: #000;
+      background: var(--primaire-second);
+    }
+  }
+
+  &--danger {
+    background: var(--primaire);
+    color: white;
+  }
+}
+
+.media__playIcon {
+  position: absolute;
+  background: url('../images/playIcon.svg') center center/38px 38px no-repeat;
+  height: 100%;
+  width: 100%;
+}

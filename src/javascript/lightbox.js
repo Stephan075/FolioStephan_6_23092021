@@ -156,6 +156,8 @@ class Lightbox {
         // Et on ajoute l'image on container
         container.append(media, titleh2)
         media.play()
+        media.setAttribute('controls', 'controls')
+        media.setAttribute('preload', 'metadata')
         media.classList.add('media__card--video')
         this.url = url
       }

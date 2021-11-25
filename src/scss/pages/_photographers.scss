@@ -1,0 +1,151 @@
+.photographer {
+  background: #fafafa;
+  padding: 5rem;
+  border-radius: 10px;
+  @include xs {
+    padding: 0;
+  }
+  @include xs {
+    background: transparent;
+  }
+  &__profil {
+    display: flex;
+    justify-content: space-between;
+    img {
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      object-fit: cover;
+      @include xs {
+        height: 120px;
+        width: 120px;
+      }
+    }
+    &--img {
+      @include xs {
+        width: 46%;
+      }
+    }
+  }
+  // body
+  &__body {
+    position: relative;
+    &--name {
+      font-size: 6.4rem;
+      font-weight: normal;
+      color: var(--primaire-second);
+      margin: 0;
+      text-transform: capitalize;
+      line-height: 6rem;
+      @include xs {
+        font-size: 3.6rem;
+        line-height: 5rem;
+      }
+    }
+    &--location {
+      font-size: 2.4rem;
+      color: var(--primaire);
+      @include xs {
+        font-size: 1.3rem;
+        line-height: 0rem;
+      }
+    }
+    &--tagline {
+      color: var(--secondaireAAA);
+      @include xs {
+        font-size: 1.3rem;
+      }
+    }
+    &--tag {
+      color: var(--primaire);
+    }
+  }
+
+  .photographer__contactButton {
+    // resp
+    @include xs {
+      position: fixed;
+      top: 95%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+  }
+}
+
+// like info
+.infos {
+  position: fixed;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  bottom: 0;
+  right: 36px;
+  background: #db8876;
+  border-radius: 10px 10px 0 0;
+  font-size: 2rem;
+  font-weight: 700;
+  width: 376px;
+  height: 60px;
+  z-index: 3;
+  @include xs {
+    display: none;
+  }
+
+  // like
+  &__likes {
+    display: flex;
+    align-items: center;
+
+    &--total {
+      margin-right: 1rem;
+    }
+  }
+}
+
+// media
+.media {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+
+  &__card {
+    cursor: pointer;
+    min-width: 30%;
+    width: 350px;
+    margin-bottom: 30px;
+    position: relative;
+    img,
+    video {
+      height: 370px;
+      width: 100%;
+      object-fit: cover;
+      border-radius: 5px;
+    }
+  }
+
+  // contenue
+  &__content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 2.4rem;
+    color: var(--primaire);
+    line-height: 0rem;
+
+    @include xs {
+      font-size: 2rem;
+    }
+  }
+
+  &__likes {
+    display: flex;
+    justify-content: space-between;
+    &--heart {
+    }
+    &--number {
+      margin-right: 1rem;
+      display: flex;
+      align-items: center;
+    }
+  }
+}

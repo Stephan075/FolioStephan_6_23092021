@@ -128,5 +128,3 @@ fetchPhotographer()
 
 // Set => élimine les doublons
 // const mestages = new Set(tonobjetjson.photographers.map((el) => el.tags))
-
-// niamatosylla@gmail.com
